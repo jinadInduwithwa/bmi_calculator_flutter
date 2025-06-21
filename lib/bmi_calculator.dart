@@ -1,3 +1,4 @@
+import 'package:demo/constant.dart';
 import 'package:flutter/material.dart';
 
 class BMICalculatorPage extends StatefulWidget {
@@ -11,8 +12,16 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("BMI Calculator")),
+      backgroundColor: kBackgroundColor,
+      appBar: AppBar(
+        title: Text(
+          "BMI Calculator",
+          style: TextStyle(color: kActiveTextColor),
+        ),
+        backgroundColor: kBackgroundColor,
+      ),
       body: Container(
+        padding: const EdgeInsets.all(32),
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -23,119 +32,188 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(children: [Icon(Icons.male), Text("Male")]),
-                    Column(children: [Icon(Icons.female), Text("Female")]),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("Height"),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "183",
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
+                    Container(
+                      color: kTileColor,
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Icon(Icons.male, size: 50, color: kActiveTextColor),
+                          Text(
+                            "Male",
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: kActiveTextColor,
+                            ),
                           ),
-                        ),
-                        Text("cm"),
-                      ],
+                        ],
+                      ),
                     ),
-                    Slider(
-                      min: 80,
-                      max: 200,
-                      value: 183,
-                      onChanged: (value) {},
+                    SizedBox(width: 50),
+                    Container(
+                      color: kTileColor,
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.female,
+                            size: 50,
+                            color: kInactiveTextColor,
+                          ),
+                          Text(
+                            "Female",
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: kInactiveTextColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
+                SizedBox(height: 10),
+                Container(
+                  color: kTileColor,
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Height",
+                        style: TextStyle(fontSize: 24, color: kActiveTextColor),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "183",
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              color: kActiveTextColor,
+                            ),
+                          ),
+                          Text(
+                            "cm",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: kActiveTextColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Slider(
+                        min: 80,
+                        max: 200,
+                        value: 183,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        Text("Weight"),
-                        Text(
-                          "74",
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
+                    Container(
+                      color: kTileColor,
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Weight",
+                            style: TextStyle(color: kActiveTextColor),
                           ),
-                        ),
-                        Text("kg"),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FloatingActionButton(
-                              elevation: 0,
-                              shape: ShapeBorder.lerp(
-                                CircleBorder(),
-                                CircleBorder(),
-                                0.5,
-                              ),
-                              onPressed: () {},
-                              child: Icon(Icons.remove),
+                          Text(
+                            "74",
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              color: kActiveTextColor,
                             ),
-                            FloatingActionButton(
-                              elevation: 0,
-                              shape: ShapeBorder.lerp(
-                                CircleBorder(),
-                                CircleBorder(),
-                                0.5,
+                          ),
+                          Text("kg"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                elevation: 0,
+                                shape: ShapeBorder.lerp(
+                                  CircleBorder(),
+                                  CircleBorder(),
+                                  0.5,
+                                ),
+                                onPressed: () {},
+                                child: Icon(Icons.remove),
                               ),
-                              onPressed: () {},
-                              child: Icon(Icons.add),
-                            ),
-                          ],
-                        ),
-                      ],
+                              SizedBox(width: 20),
+                              FloatingActionButton(
+                                elevation: 0,
+                                shape: ShapeBorder.lerp(
+                                  CircleBorder(),
+                                  CircleBorder(),
+                                  0.5,
+                                ),
+                                onPressed: () {},
+                                child: Icon(Icons.add),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(width: 50),
-                    Column(
-                      children: [
-                        Text("Height"),
-                        Text(
-                          "174",
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
+                    Container(
+                      color: kTileColor,
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Height",
+                            style: TextStyle(color: kActiveTextColor),
                           ),
-                        ),
-                        Text("kg"),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            FloatingActionButton(
-                              elevation: 0,
-                              shape: ShapeBorder.lerp(
-                                CircleBorder(),
-                                CircleBorder(),
-                                0.5,
-                              ),
-                              onPressed: () {},
-                              child: Icon(Icons.remove),
+                          Text(
+                            "174",
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                              color: kActiveTextColor,
                             ),
-                            FloatingActionButton(
-                              elevation: 0,
-                              shape: ShapeBorder.lerp(
-                                CircleBorder(),
-                                CircleBorder(),
-                                0.5,
+                          ),
+                          Text("kg"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              FloatingActionButton(
+                                elevation: 0,
+                                shape: ShapeBorder.lerp(
+                                  CircleBorder(),
+                                  CircleBorder(),
+                                  0.5,
+                                ),
+                                onPressed: () {},
+                                child: Icon(Icons.remove),
                               ),
-                              onPressed: () {},
-                              child: Icon(Icons.add),
-                            ),
-                          ],
-                        ),
-                      ],
+                              SizedBox(width: 20),
+                              FloatingActionButton(
+                                elevation: 0,
+                                shape: ShapeBorder.lerp(
+                                  CircleBorder(),
+                                  CircleBorder(),
+                                  0.5,
+                                ),
+                                onPressed: () {},
+                                child: Icon(Icons.add),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ],
             ),
-
+            SizedBox(height: 10),
             ElevatedButton(onPressed: () {}, child: Text("Calculate BMI")),
           ],
         ),
